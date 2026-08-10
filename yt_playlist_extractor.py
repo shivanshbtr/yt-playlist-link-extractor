@@ -9,9 +9,6 @@ def fetch_playlist(url):
         "quiet": True,
         "extract_flat": "in_playlist",
         "skip_download": True,
-        "ignoreerrors": True,
-        "playlistend": None,
-        "playlist_items": None,
     }
     with yt_dlp.YoutubeDL(opts) as ydl:
         info = ydl.extract_info(url, download=False)
