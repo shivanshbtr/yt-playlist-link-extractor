@@ -44,7 +44,6 @@ Requires Python installed on the Windows machine.
 2. Double-click `build.bat`.
 
 This will:
-
 - Install `yt-dlp` and `pyinstaller`
 - Build `dist\YT Playlist Extractor.exe` with the custom icon
 - Create a desktop shortcut pointing to the exe
@@ -55,6 +54,10 @@ After that, double-click the desktop shortcut to launch the app — no console w
 
 - Works with public/unlisted playlists. Private playlists are not supported.
 - No videos are downloaded; only metadata (title, video ID) is fetched.
+- If a large playlist fetches only ~100 videos, your `yt-dlp` is outdated. Fix with:
+  ```bash
+  pip install -U yt-dlp
+  ```
 
 ## License
 
