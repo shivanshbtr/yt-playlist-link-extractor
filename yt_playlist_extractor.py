@@ -5,10 +5,17 @@ import yt_dlp
 
 
 def fetch_playlist(url):
-    opts = {"quiet": True, "extract_flat": True, "skip_download": True}
+    opts = {
+        "quiet": True,
+        "extract_flat": "in_playlist",
+        "skip_download": True,
+        "ignoreerrors": True,
+        "playlistend": None,
+        "playlist_items": None,
+    }
     with yt_dlp.YoutubeDL(opts) as ydl:
         info = ydl.extract_info(url, download=False)
-    entries = info.get("entries") or []
+    entries = [e for e in (info.get("entries") or []) if e]
     results = []
     for i, e in enumerate(entries, 1):
         title = e.get("title", "Unknown")
